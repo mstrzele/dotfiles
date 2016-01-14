@@ -1,0 +1,30 @@
+- clean: ['~']
+
+- link:
+    ~/.Brewfile: Brewfile
+    ~/.config/liquidpromptrc:
+      create: true
+      path: config/liquidpromptrc
+    ~/.dir_colors: dircolors-solarized/dircolors.256dark
+    ~/.dotfiles: ''
+    ~/.gitconfig: gitconfig
+    ~/.gitignore: gitignore
+    ~/.irbrc: irbrc
+    ~/.liquidprompt: liquidprompt/
+    ~/.puppet-lint.rc: puppet-lint.rc
+    ~/.tmux.conf: tmux.conf
+    ~/.tmuxline.conf: tmuxline.conf
+    ~/.zshenv: zshenv
+    ~/.vim: vim/
+    ~/.vimrc: vimrc
+    ~/.zprezto: prezto/
+    ~/.zpreztorc: zpreztorc
+    ~/.zshenv: zshenv
+    ~/.zshrc: zshrc
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
+  - |-
+      mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+      curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+  - mkdir -p ~/.backup && chmod 0700 ~/.backup
