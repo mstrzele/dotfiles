@@ -55,5 +55,7 @@ au BufRead,BufNewFile *.template setfiletype json
 
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_python_checkers = ['pylint', 'python']
+let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 
 set rtp+=~/.fzf
