@@ -7,3 +7,4 @@ email = maciej.strzelecki@gmail.com
 	default = simple
 [alias]
 	lg = log --color --graph --abbrev-commit --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset'
+	ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
