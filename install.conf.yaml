@@ -7,6 +7,7 @@
       path: config/liquidpromptrc
     ~/.dir_colors: dircolors-solarized/dircolors.256dark
     ~/.dotfiles: ''
+    ~/.fzf: fzf
     ~/.gitconfig: gitconfig
     ~/.gitignore: gitignore
     ~/.irbrc: irbrc
@@ -28,3 +29,4 @@
       mkdir -p ~/.vim/autoload ~/.vim/bundle && \
       curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
   - mkdir -p ~/.backup && chmod 0700 ~/.backup
+  - ~/.fzf/install

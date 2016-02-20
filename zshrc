@@ -22,3 +22,5 @@ alias crontab='CRONTAB=true crontab'
 alias myip='dig @resolver1.opendns.com myip.opendns.com +short'
 
 # vi:et:sw=2 ts=2
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
