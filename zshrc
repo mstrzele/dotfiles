@@ -24,3 +24,6 @@ alias myip='dig @resolver1.opendns.com myip.opendns.com +short'
 # vi:et:sw=2 ts=2
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# added by travis gem
+[ -f /Users/mstrzele/.travis/travis.sh ] && source /Users/mstrzele/.travis/travis.sh
