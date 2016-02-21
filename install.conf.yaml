@@ -8,7 +8,9 @@
     ~/.dir_colors: dircolors-solarized/dircolors.256dark
     ~/.dotfiles: ''
     ~/.fzf: fzf
-    ~/.gitconfig: gitconfig
+    ~/.gitconfig:
+      force: true
+      path: gitconfig
     ~/.gitignore: gitignore
     ~/.irbrc: irbrc
     ~/.liquidprompt: liquidprompt/
@@ -21,7 +23,9 @@
     ~/.zprezto: prezto/
     ~/.zpreztorc: zpreztorc
     ~/.zshenv: zshenv
-    ~/.zshrc: zshrc
+    ~/.zshrc:
+      force: true
+      path: zshrc
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
