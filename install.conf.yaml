@@ -29,4 +29,4 @@
       mkdir -p ~/.vim/autoload ~/.vim/bundle && \
       curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
   - mkdir -p ~/.backup && chmod 0700 ~/.backup
-  - ~/.fzf/install
+  - ~/.fzf/install --completion --key-bindings
