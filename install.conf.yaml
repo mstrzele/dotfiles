@@ -5,6 +5,7 @@
     ~/.config/liquidpromptrc:
       create: true
       path: config/liquidpromptrc
+    ~/.bash_profile: bash_profile
     ~/.dir_colors: dircolors-solarized/dircolors.256dark
     ~/.dotfiles: ''
     ~/.fzf: fzf
