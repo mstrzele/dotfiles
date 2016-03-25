@@ -6,7 +6,9 @@
     ~/.config/liquidpromptrc:
       create: true
       path: config/liquidpromptrc
-    ~/.dir_colors: dircolors-solarized/dircolors.256dark
+    ~/.dir_colors:
+      force: true
+      path: dircolors-solarized/dircolors.256dark
     ~/.dotfiles: ''
     ~/.fzf: fzf
     ~/.gitconfig:
