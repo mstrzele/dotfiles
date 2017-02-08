@@ -29,10 +29,12 @@ zstyle ':prezto:load' pmodule \
   'ssh' \
   'spectrum' \
   'syntax-highlighting' \
+  'autosuggestions' \
   'terminal' \
   'tmux' \
   'utility' \
-  'completion'
+  'completion' \
+  'gpg'
 
 #
 # Editor

@@ -1,23 +1,24 @@
 - clean: ['~']
 
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
+
 - link:
     ~/.bash_profile: bash_profile
     ~/.Brewfile: Brewfile
+    ~/.config/git/ignore:
+      create: true
+      path: config/git/ignore
     ~/.config/liquidpromptrc:
       create: true
       path: config/liquidpromptrc
-    ~/.dir_colors:
-      force: true
-      path: dircolors-solarized/dircolors.256dark
     ~/.dotfiles: ''
     ~/.fzf: fzf
     ~/.gitconfig:
       force: true
       path: gitconfig
-    ~/.gitignore: gitignore
     ~/.irbrc: irbrc
     ~/.liquidprompt: liquidprompt/
-    ~/.puppet-lint.rc: puppet-lint.rc
     ~/.tmux.conf: tmux.conf
     ~/.tmuxline.conf: tmuxline.conf
     ~/.zshenv: zshenv
@@ -31,9 +32,8 @@
       path: zshrc
 
 - shell:
-  - [git submodule update --init --recursive, Installing submodules]
   - |-
       mkdir -p ~/.vim/autoload ~/.vim/bundle && \
       curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
   - mkdir -p ~/.backup && chmod 0700 ~/.backup
-  - ~/.fzf/install --completion --key-bindings --update-rc
+  - ~/.fzf/install --completion --key-bindings --no-update-rc

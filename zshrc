@@ -16,14 +16,24 @@ export LESS_TERMCAP_so=$'\E[1;30;43m'     # begin standout-mode - info box
 export LESS_TERMCAP_ue=$'\E[0m'           # end underline
 export LESS_TERMCAP_us=$'\E[4;32m'        # begin underline
 
-source /usr/local/bin/virtualenvwrapper.sh
-
 alias crontab='CRONTAB=true crontab'
+
+hash ssh-add=/usr/bin/ssh-add
+
 alias myip='dig @resolver1.opendns.com myip.opendns.com +short'
 
+source "${HOME}/.fzf.zsh"
+
+eval "$(hub alias -s)"
+
+source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
+source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
+
+source <(kubectl completion zsh)
+
+[[ -r "${HOME}/.travis/travis.sh" ]] && source "${HOME}/.travis/travis.sh"
+[[ -r "${HOME}/.iterm2_shell_integration.zsh" ]] && source "${HOME}/.iterm2_shell_integration.zsh"
+
+[[ -r "${HOME}/.zshrc.local" ]] && source "${HOME}/.zshrc.local"
+
 # vi:et:sw=2 ts=2
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# added by travis gem
-[ -f /Users/mstrzele/.travis/travis.sh ] && source /Users/mstrzele/.travis/travis.sh

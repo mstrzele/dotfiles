@@ -2,9 +2,7 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
-set background=dark
-colorscheme solarized
-let g:solarized_termtrans=1
+colorscheme monokai
 
 set autoindent
 set backup
@@ -14,6 +12,7 @@ set cursorline
 set expandtab
 set modeline
 set number
+set relativenumber
 set ruler
 set shiftwidth=2
 set showmatch
@@ -31,7 +30,7 @@ map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 let g:lightline = {
-      \ 'colorscheme': 'solarized_dark',
+      \ 'colorscheme': 'molokai',
       \ }
 
 let g:tmuxline_preset = 'full'
@@ -58,4 +57,9 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers = ['pylint', 'python']
 let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 
-set rtp+=~/.fzf
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
