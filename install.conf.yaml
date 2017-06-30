@@ -11,27 +11,26 @@
 
 - link:
     ~/.dotfiles: ''
-    ~/.bash_profile: bash_profile
+    ~/.bash_profile:
     ~/.bashrc:
       force: true
-      path: bashrc
-    ~/.Brewfile: Brewfile
+    ~/.Brewfile:
     ~/.config/git/ignore:
       path: config/git/ignore
     ~/.config/liquidpromptrc:
       path: config/liquidpromptrc
     ~/.gitconfig:
       force: true
-      path: gitconfig
-    ~/.irbrc: irbrc
-    ~/.liquidprompt: liquidprompt
-    ~/.tmux.conf: tmux.conf
-    ~/.tmuxline.conf: tmuxline.conf
-    ~/.zshenv: zshenv
-    ~/.vimrc: vimrc
+    ~/.irbrc:
+    ~/.liquidprompt:
+    ~/.tmux.conf:
+    ~/.tmuxline.conf:
+    ~/.zshenv:
+    ~/.vimrc:
     ~/.zprezto: prezto
-    ~/.zpreztorc: zpreztorc
-    ~/.zshenv: zshenv
+    ~/.zpreztorc:
+    ~/.zshenv:
+    ~/.zshenv.local:
     ~/.zshrc:
       force: true
-      path: zshrc
+    ~/.zshrc.local:
