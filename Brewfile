@@ -1,140 +1,154 @@
-tap 'caskroom/cask'
-tap 'homebrew/bundle'
-tap 'homebrew/completions'
-tap 'homebrew/core'
-tap 'homebrew/dupes'
-tap 'mstrzele/napi'
-brew 'apg'
-brew 'clasp'
-brew 'gringo'
-brew 'aspcud'
-brew 'autoconf'
-brew 'automake'
-brew 'awscli'
-brew 'readline'
-brew 'bash'
-brew 'brew-cask-completion'
-brew 'ocaml'
-brew 'ocamlbuild'
-brew 'camlp4'
-brew 'coreutils'
-brew 'libgpg-error'
-brew 'libassuan'
-brew 'libgcrypt'
-brew 'libksba'
-brew 'pth'
-brew 'dirmngr'
-brew 'libyaml'
-brew 'docker-cloud'
-brew 'docker-completion'
-brew 'docker-compose-completion'
-brew 'git'
-brew 'docker-machine'
-brew 'docker-machine-completion'
-brew 'libev'
-brew 'opam'
-brew 'docker-machine-driver-xhyve'
-brew 'docker-machine-nfs'
-brew 'doxygen'
-brew 'lame'
-brew 'x264'
-brew 'xvid'
-brew 'ffmpeg'
-brew 'findutils', args: ['with-default-names']
-brew 'gmp'
-brew 'mpfr'
-brew 'gawk'
-brew 'gdbm'
-brew 'gem-completion'
-brew 'gettext'
-brew 'gnu-getopt'
-brew 'git-flow-avh'
-brew 'go'
-brew 'glide'
-brew 'gnu-indent', args: ['with-default-names']
-brew 'gnu-sed', args: ['with-default-names']
-brew 'gnu-tar', args: ['with-default-names']
-brew 'pinentry'
-brew 'gpg-agent'
-brew 'libusb'
-brew 'libusb-compat'
-brew 'gnupg2'
-brew 'grip'
-brew 'htop-osx'
-brew 'hub'
-brew 'oniguruma'
-brew 'jq'
-brew 'kubernetes-cli'
-brew 'kubernetes-helm'
-brew 'launchctl-completion'
-brew 'legit'
-brew 'lego'
-brew 'openssl'
-brew 'libevent'
-brew 'libressl'
-brew 'mas'
-brew 'mysql'
-brew 'openssl@1.1'
-brew 'p7zip'
-brew 'pcre'
-brew 'perl'
-brew 'pinentry-mac'
-brew 'pip-completion'
-brew 'pkg-config'
-brew 'sqlite'
-brew 'python'
-brew 'postgresql'
-brew 'ruby-build'
-brew 'rbenv'
-brew 'ruby'
-brew 'ruby-completion'
-brew 'shellcheck'
-brew 'ssh-copy-id'
-brew 'terraform'
-brew 'terragrunt'
-brew 'tmux'
-brew 'vagrant-completion'
-brew 'vim'
-brew 'wget'
-brew 'xz'
-brew 'zsh'
-brew 'homebrew/dupes/grep', args: ['with-default-names']
-brew 'homebrew/dupes/openssh', args: ['with-libressl']
-brew 'homebrew/dupes/unzip'
-brew 'mstrzele/napi/napi'
-cask '1password'
-cask 'adobe-reader'
-cask 'alfred'
-cask 'android-file-transfer'
-cask 'docker'
-cask 'dropbox'
-cask 'flux'
-cask 'google-chrome'
-cask 'google-cloud-sdk'
-cask 'google-drive'
-cask 'grammarly'
-cask 'iterm2'
-cask 'keybase'
-cask 'minikube'
-cask 'ngrok'
-cask 'plex-media-server'
-cask 'remote-play'
-cask 'skype'
-cask 'sourcetree'
-cask 'spotify'
-cask 'steam'
-cask 'utorrent'
-cask 'vagrant'
-cask 'virtualbox'
-cask 'virtualbox-extension-pack'
-cask 'visual-studio-code'
-cask 'vlc'
-mas 'Wunderlist', id: 410628904
-mas 'Evernote', id: 406056744
-mas 'Airmail 3', id: 918858936
-mas 'Xcode', id: 497799835
-mas 'ForkLift', id: 412448059
-mas 'Slack', id: 803453959
-mas 'Keynote', id: 409183694
-mas 'Fantastical 2', id: 975937182
-mas 'Numbers', id: 409203825
+tap "ahmetb/kubectx", "https://github.com/ahmetb/kubectx.git"
+tap "caskroom/cask"
+tap "caskroom/versions"
+tap "homebrew/bundle"
+tap "homebrew/core"
+tap "homebrew/dupes"
+tap "johanhaleby/kubetail"
+tap "mstrzele/napi"
+brew "libyaml"
+brew "openssl@1.1"
+brew "gdbm"
+brew "openssl"
+brew "readline"
+brew "sqlite"
+brew "python"
+brew "ansible"
+brew "xz"
+brew "asciinema"
+brew "clasp"
+brew "gringo"
+brew "aspcud"
+brew "autoconf"
+brew "aws-shell"
+brew "awscli"
+brew "bash"
+brew "bash-completion"
+brew "brew-cask-completion"
+brew "ocaml"
+brew "ocamlbuild"
+brew "camlp4"
+brew "coreutils"
+brew "ctop"
+brew "curl"
+brew "libgpg-error"
+brew "libassuan"
+brew "libgcrypt"
+brew "libksba"
+brew "pth"
+brew "dirmngr"
+brew "docker-cloud"
+brew "docker-completion"
+brew "docker-compose-completion"
+brew "perl"
+brew "git", args: ["without-completions"]
+brew "docker-machine"
+brew "libev"
+brew "opam"
+brew "docker-machine-driver-xhyve"
+brew "docker-machine-nfs"
+brew "doxygen"
+brew "lame"
+brew "x264"
+brew "xvid"
+brew "ffmpeg"
+brew "findutils", args: ["with-default-names"]
+brew "gmp"
+brew "mpfr"
+brew "gawk"
+brew "gem-completion"
+brew "gettext"
+brew "gnu-getopt"
+brew "git-flow-avh"
+brew "go"
+brew "glide"
+brew "gnu-indent", args: ["with-default-names"]
+brew "gnu-sed", args: ["with-default-names"]
+brew "gnu-tar", args: ["with-default-names"]
+brew "pinentry"
+brew "gpg-agent"
+brew "pcre"
+brew "grep", args: ["with-default-names"]
+brew "grip"
+brew "htop-osx"
+brew "httpie"
+brew "hub"
+brew "imagemagick"
+brew "oniguruma"
+brew "jq"
+brew "kompose"
+brew "kubernetes-cli"
+brew "kops"
+brew "kubernetes-helm"
+brew "launchctl-completion"
+brew "lego"
+brew "libevent"
+brew "libressl"
+brew "libusb"
+brew "libusb-compat"
+brew "make", args: ["with-default-names"]
+brew "mas"
+brew "mycli"
+brew "mysql"
+brew "node"
+brew "p7zip"
+brew "pinentry-mac"
+brew "pip-completion"
+brew "pkg-config"
+brew "postgresql"
+brew "pwgen"
+brew "ruby-build"
+brew "rbenv"
+brew "redis"
+brew "ruby"
+brew "ruby-completion"
+brew "s3cmd"
+brew "shellcheck"
+brew "ssh-copy-id"
+brew "terragrunt"
+brew "tmux"
+brew "unzip"
+brew "vagrant-completion"
+brew "vim"
+brew "watch"
+brew "wget"
+brew "zsh"
+brew "ahmetb/kubectx/kubectx"
+brew "johanhaleby/kubetail/kubetail"
+brew "mstrzele/napi/napi"
+cask "1password"
+cask "adobe-reader"
+cask "android-file-transfer"
+cask "docker"
+cask "dropbox"
+cask "flash-npapi"
+cask "flash-player"
+cask "flash-ppapi"
+cask "google-chrome"
+cask "google-cloud-sdk"
+cask "google-drive"
+cask "gpgtools-beta"
+cask "grammarly"
+cask "iterm2"
+cask "minikube"
+cask "ngrok"
+cask "paw"
+cask "plex-media-server"
+cask "remote-play"
+cask "skype"
+cask "spotify"
+cask "steam"
+cask "vagrant"
+cask "virtualbox"
+cask "virtualbox-extension-pack"
+cask "visual-studio-code"
+cask "vlc"
+mas "Airmail 3", id: 918858936
+mas "Evernote", id: 406056744
+mas "Fantastical 2", id: 975937182
+mas "ForkLift", id: 412448059
+mas "Keynote", id: 409183694
+mas "Numbers", id: 409203825
+mas "Slack", id: 803453959
+mas "Todoist", id: 585829637
+mas "Xcode", id: 497799835

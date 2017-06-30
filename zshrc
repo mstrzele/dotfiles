@@ -1,3 +1,10 @@
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
@@ -16,23 +23,12 @@ export LESS_TERMCAP_so=$'\E[1;30;43m'     # begin standout-mode - info box
 export LESS_TERMCAP_ue=$'\E[0m'           # end underline
 export LESS_TERMCAP_us=$'\E[4;32m'        # begin underline
 
-alias crontab='CRONTAB=true crontab'
-
-hash ssh-add=/usr/bin/ssh-add
-
-alias myip='dig @resolver1.opendns.com myip.opendns.com +short'
-
 source "${HOME}/.fzf.zsh"
 
-eval "$(hub alias -s)"
-
-source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
-source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
-
-source <(kubectl completion zsh)
-
-[[ -r "${HOME}/.travis/travis.sh" ]] && source "${HOME}/.travis/travis.sh"
-[[ -r "${HOME}/.iterm2_shell_integration.zsh" ]] && source "${HOME}/.iterm2_shell_integration.zsh"
+alias crontab='CRONTAB=true crontab'
+alias myip='dig @resolver1.opendns.com myip.opendns.com +short'
+alias s='sudo'
+alias v='vim'
 
 [[ -r "${HOME}/.zshrc.local" ]] && source "${HOME}/.zshrc.local"
 

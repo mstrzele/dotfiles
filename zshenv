@@ -12,6 +12,8 @@ fi
 
 export PATH="${HOME}/bin:${PATH}"
 
+export PATH="/usr/local/opt/gpg-agent/bin:${PATH}"
+
 export EDITOR='vim'
 export LANG='pl_PL.UTF-8'
 export LC_CTYPE='pl_PL.UTF-8'
@@ -23,7 +25,7 @@ export LESSHISTFILE='/dev/null'
 
 export PROJECT_HOME="${HOME}/GitHub"
 
-export GOPATH="${HOME}/work"
+export GOPATH="${HOME}/go"
 export PATH="${PATH}:${GOPATH}/bin"
 
 [[ -r "${HOME}/.zshenv.local" ]] && source "${HOME}/.zshenv.local"

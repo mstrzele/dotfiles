@@ -1,39 +1,35 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+
 - clean: ['~']
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
+  - mkdir -p ~/.backup && chmod 0700 ~/.backup
 
 - link:
+    ~/.dotfiles: ''
     ~/.bash_profile: bash_profile
+    ~/.bashrc: bashrc
     ~/.Brewfile: Brewfile
     ~/.config/git/ignore:
-      create: true
       path: config/git/ignore
     ~/.config/liquidpromptrc:
-      create: true
       path: config/liquidpromptrc
-    ~/.dotfiles: ''
-    ~/.fzf: fzf
     ~/.gitconfig:
       force: true
       path: gitconfig
     ~/.irbrc: irbrc
-    ~/.liquidprompt: liquidprompt/
+    ~/.liquidprompt: liquidprompt
     ~/.tmux.conf: tmux.conf
     ~/.tmuxline.conf: tmuxline.conf
     ~/.zshenv: zshenv
-    ~/.vim: vim/
     ~/.vimrc: vimrc
-    ~/.zprezto: prezto/
+    ~/.zprezto: prezto
     ~/.zpreztorc: zpreztorc
     ~/.zshenv: zshenv
     ~/.zshrc:
       force: true
       path: zshrc
-
-- shell:
-  - |-
-      mkdir -p ~/.vim/autoload ~/.vim/bundle && \
-      curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-  - mkdir -p ~/.backup && chmod 0700 ~/.backup
-  - ~/.fzf/install --completion --key-bindings --no-update-rc
