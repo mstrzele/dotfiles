@@ -8,10 +8,12 @@
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
   - mkdir -p ~/.backup && chmod 0700 ~/.backup
+  - touch ~/.zshenv.local && chmod 0600 ~/.zshenv.local
+  - touch ~/.zshrc.local && chmod 0600 ~/.zshrc.local
 
 - link:
     ~/.dotfiles: ''
-    ~/.bash_profile:
+    ~/.bash_aliases:
     ~/.bashrc:
       force: true
     ~/.Brewfile:
@@ -23,6 +25,9 @@
       force: true
     ~/.irbrc:
     ~/.liquidprompt:
+    ~/.profile:
+      force: true
+    ~/.zshrc:
     ~/.tmux.conf:
     ~/.tmuxline.conf:
     ~/.zshenv:
@@ -30,7 +35,5 @@
     ~/.zprezto: prezto
     ~/.zpreztorc:
     ~/.zshenv:
-    ~/.zshenv.local:
     ~/.zshrc:
       force: true
-    ~/.zshrc.local:
