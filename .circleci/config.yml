@@ -1,0 +1,9 @@
+version: 2
+jobs:
+   build:
+     working_directory: ~/dotfiles
+     docker:
+       - image: circleci/python:2.7
+     steps:
+       - checkout
+       - run: ./install
