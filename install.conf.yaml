@@ -12,7 +12,9 @@
 - link:
     ~/.dotfiles: ''
     ~/.bash_profile: bash_profile
-    ~/.bashrc: bashrc
+    ~/.bashrc:
+      force: true
+      path: bashrc
     ~/.Brewfile: Brewfile
     ~/.config/git/ignore:
       path: config/git/ignore
