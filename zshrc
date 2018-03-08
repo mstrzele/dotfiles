@@ -52,6 +52,6 @@ if [ $commands[minikube] ]; then
   alias m='minikube'
 fi
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
 
 # vi:et:sw=2 ts=2
