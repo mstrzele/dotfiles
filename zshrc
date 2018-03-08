@@ -30,6 +30,28 @@ alias myip='dig @resolver1.opendns.com myip.opendns.com +short'
 alias s='sudo'
 alias v='vim'
 
-[[ -r "${HOME}/.zshrc.local" ]] && source "${HOME}/.zshrc.local"
+if [ $commands[hub] ]; then
+  eval "$(hub alias -s)"
+fi
+
+if [ $commands[kubectl] ]; then
+  source <(kubectl completion zsh)
+
+  alias k='kubectl'
+fi
+
+if [ $commands[helm] ]; then
+  source <(helm completion zsh)
+
+  alias h='helm'
+fi
+
+if [ $commands[minikube] ]; then
+  source <(minikube completion zsh)
+
+  alias m='minikube'
+fi
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # vi:et:sw=2 ts=2

@@ -5,8 +5,10 @@ set autoindent
 set backup
 set backupdir=./.backup,~/.backup,.,/tmp
 set colorcolumn=80
+set cursorcolumn
 set cursorline
 set expandtab
+set mouse=a
 set modeline
 set number
 set relativenumber
