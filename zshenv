@@ -6,7 +6,7 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 export MANPATH="/usr/local/share/man:/usr/share/man"
 
 if [[ "$(uname -s)" == 'Darwin' ]]; then
-  export PATH="/usr/local/opt/coreutils/libexec/gnubin:${PATH}"
+  export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/curl/bin:${PATH}"
   export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:${MANPATH}"
 fi
 
@@ -22,6 +22,7 @@ export LESS='-R'
 export LESSHISTFILE='/dev/null'
 
 export GOPATH="${HOME}/go"
-export PATH="${PATH}:${GOPATH}/bin"
+export GOBIN="${GOPATH}/bin"
+export PATH="${PATH}:${GOBIN}"
 
 # vi:et:sw=2 ts=2
