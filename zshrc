@@ -52,6 +52,11 @@ if [ $commands[minikube] ]; then
   alias m='minikube'
 fi
 
+if [ $commands[gcloud] ]; then
+  source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
+  source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
+fi
+
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
 
 # vi:et:sw=2 ts=2
