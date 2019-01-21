@@ -57,6 +57,15 @@ if [ $commands[gcloud] ]; then
   source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
 fi
 
+docker_download () {
+  if (( $# == 0 ))
+  then echo "docker_download" requires exactly 1 argument.; return; fi
+  docker pull "$1"
+  output="$(echo "$1" | sed 's#.*/.*/\([a-zA-Z0-9][a-zA-Z0-9_.-]\{0,30\}\):\([[:alnum:]_][[:alnum:]_.-]\{0,127\}\)#\1-\2#').tar"
+  docker save -o "$output" "$1"
+  gzip -f "$output"
+}
+
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
 
 # vi:et:sw=2 ts=2
