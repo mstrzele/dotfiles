@@ -17,3 +17,5 @@
 	rebase = true
 [commit]
 	gpgsign = true
+[core]
+	ignorecase = false
