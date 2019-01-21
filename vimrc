@@ -87,6 +87,7 @@ Plug 'mustache/vim-mustache-handlebars'
 Plug 'tpope/vim-surround'
 Plug 'hashivim/vim-terraform'
 Plug 'tmux-plugins/vim-tmux'
+Plug 'cespare/vim-toml'
 
 call plug#end()
 
