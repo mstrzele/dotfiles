@@ -61,6 +61,8 @@ set noshowmode
 Plug 'scrooloose/syntastic'
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_markdown_mdl_exec = 'markdownlint'
+let g:syntastic_markdown_mdl_args = ''
 let g:syntastic_python_checkers = ['pylint', 'python']
 let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 
