@@ -19,3 +19,5 @@
 	gpgsign = true
 [core]
 	ignorecase = false
+[url "git@gitlab.com:"]
+	insteadOf = https://gitlab.com
