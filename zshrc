@@ -57,6 +57,11 @@ if [ $commands[gcloud] ]; then
   source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
 fi
 
+if [ $command[pyenv] ]; then
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+fi
+
 docker_download () {
   if (( $# == 0 ))
   then echo "docker_download" requires exactly 1 argument.; return; fi
