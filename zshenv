@@ -6,8 +6,11 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 export MANPATH="/usr/local/share/man:/usr/share/man"
 
 if [[ "$(uname -s)" == 'Darwin' ]]; then
-  export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/curl/bin:${PATH}"
+  export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/curl/bin:/usr/local/opt/gettext/bin:${PATH}"
   export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:${MANPATH}"
+
+  export LDFLAGS="-L/usr/local/opt/gettext/lib"
+  export CPPFLAGS="-I/usr/local/opt/gettext/include"
 fi
 
 export PATH="${HOME}/bin:${PATH}"
