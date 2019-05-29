@@ -28,4 +28,6 @@ export GOPATH="${HOME}/go"
 export GOBIN="${GOPATH}/bin"
 export PATH="${PATH}:${GOBIN}"
 
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
 # vi:et:sw=2 ts=2

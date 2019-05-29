@@ -62,6 +62,15 @@ if [ $command[pyenv] ]; then
   eval "$(pyenv virtualenv-init -)"
 fi
 
+if [ $commands[az] ]; then
+  source '/usr/local/etc/bash_completion.d/az'
+fi
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
+
+source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+LP_PS1_PREFIX='$(kube_ps1) '
+
 docker_download () {
   if (( $# == 0 ))
   then echo "docker_download" requires exactly 1 argument.; return; fi
@@ -70,7 +79,5 @@ docker_download () {
   docker save -o "$output" "$1"
   gzip -f "$output"
 }
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
 
 # vi:et:sw=2 ts=2
