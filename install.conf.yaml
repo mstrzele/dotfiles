@@ -37,3 +37,4 @@
     ~/.zshenv:
     ~/.zshrc:
       force: true
+    ~/Makefile:
