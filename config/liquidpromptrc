@@ -1,3 +1,4 @@
+# shellcheck disable=SC2034
 
 ####################################
 # LIQUID PROMPT CONFIGURATION FILE #
@@ -56,7 +57,7 @@ LP_ENABLE_FQDN=0
 # Defaults to 1 (always display the user name)
 # set to 0 if you want to hide the logged user (it will always display different
 # users)
-LP_USER_ALWAYS=1
+LP_USER_ALWAYS=0
 
 # Display the percentages of load/batteries along with their
 # corresponding marks. Set to 0 to only print the colored marks.
@@ -70,7 +71,7 @@ LP_ENABLE_PERM=1
 
 # Enable the proxy detection feature.
 # Recommended value is 1
-LP_ENABLE_PROXY=1
+LP_ENABLE_PROXY=0
 
 # Enable the jobs feature.
 # Recommended value is 1
@@ -78,11 +79,11 @@ LP_ENABLE_JOBS=1
 
 # Enable the load feature.
 # Recommended value is 1
-LP_ENABLE_LOAD=1
+LP_ENABLE_LOAD=0
 
 # Enable the battery feature.
 # Recommended value is 1
-LP_ENABLE_BATT=1
+LP_ENABLE_BATT=0
 
 # Enable the 'sudo credentials' feature.
 # Be warned that this may pollute the syslog if you don't have sudo
