@@ -19,14 +19,14 @@ brew "curl"
 brew "go"
 brew "dep"
 brew "docker-completion"
-brew "findutils", args: ["with-default-names"]
+brew "findutils"
 brew "git"
 brew "git-flow-avh"
-brew "gnu-indent", args: ["with-default-names"]
-brew "gnu-sed", args: ["with-default-names"]
+brew "gnu-indent"
+brew "gnu-sed"
 brew "gnu-tar"
 brew "graphviz"
-brew "grep", args: ["with-default-names"]
+brew "grep"
 brew "grip"
 brew "grpc"
 brew "htop"
@@ -39,7 +39,7 @@ brew "kube-ps1"
 brew "kubectx"
 brew "kubernetes-helm"
 brew "launchctl-completion"
-brew "make", args: ["with-default-names"]
+brew "make"
 brew "mas"
 brew "mysql"
 brew "node"
@@ -87,13 +87,13 @@ cask "visual-studio-code"
 cask "vlc"
 cask "zoomus"
 cask "zoomus-outlook-plugin"
-mas "Airmail 3", id: 918858936
+mas "Airmail", id: 918858936
 mas "Evernote", id: 406056744
-mas "Fantastical 2", id: 975937182
+mas "Fantastical", id: 975937182
 mas "GarageBand", id: 682658836
 mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Slack", id: 803453959
-mas "Things3", id: 904280696
+mas "Things", id: 904280696
