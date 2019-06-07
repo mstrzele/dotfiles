@@ -8,8 +8,7 @@
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
   - mkdir -p ~/.backup && chmod 0700 ~/.backup
-  - touch ~/.zshenv.local && chmod 0600 ~/.zshenv.local
-  - touch ~/.zshrc.local && chmod 0600 ~/.zshrc.local
+  - mkdir -p ~/.bin
 
 - link:
     ~/.dotfiles: ''
