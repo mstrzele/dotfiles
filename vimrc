@@ -94,3 +94,5 @@ Plug 'cespare/vim-toml'
 call plug#end()
 
 :silent! colorscheme monokai
+
+au BufNewFile,BufRead Jenkinsfile setf groovy
