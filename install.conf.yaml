@@ -1,3 +1,4 @@
+---
 - defaults:
     link:
       create: true
@@ -6,9 +7,9 @@
 - clean: ['~']
 
 - shell:
-  - [git submodule update --init --recursive, Installing submodules]
-  - mkdir -p ~/.backup && chmod 0700 ~/.backup
-  - mkdir -p ~/.bin
+    - [git submodule update --init --recursive, Installing submodules]
+    - mkdir -p ~/.backup && chmod 0700 ~/.backup
+    - mkdir -p ~/.bin
 
 - link:
     ~/.dotfiles: ''
@@ -26,10 +27,8 @@
     ~/.liquidprompt:
     ~/.profile:
       force: true
-    ~/.zshrc:
     ~/.tmux.conf:
     ~/.tmuxline.conf:
-    ~/.zshenv:
     ~/.vimrc:
     ~/.zprezto: prezto
     ~/.zpreztorc:
