@@ -12,6 +12,7 @@
     - mkdir -p ~/.bin
 
 - link:
+    ~/.ansible.cfg:
     ~/.dotfiles: ''
     ~/.bash_aliases:
     ~/.bashrc:
