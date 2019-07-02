@@ -80,4 +80,7 @@ docker_download () {
   gzip -f "$output"
 }
 
+alias cdtemp="cd \"$(mktemp -d)\""
+alias weather='curl wttr.in'
+
 # vi:et:sw=2 ts=2
