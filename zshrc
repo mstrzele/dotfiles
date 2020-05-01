@@ -36,20 +36,14 @@ fi
 
 if [ $commands[kubectl] ]; then
   source <(kubectl completion zsh)
-
-  alias k='kubectl'
 fi
 
 if [ $commands[helm] ]; then
   source <(helm completion zsh)
-
-  alias h='helm'
 fi
 
 if [ $commands[minikube] ]; then
   source <(minikube completion zsh)
-
-  alias m='minikube'
 fi
 
 if [ $commands[gcloud] ]; then
@@ -57,7 +51,7 @@ if [ $commands[gcloud] ]; then
   source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
 fi
 
-if [ $command[pyenv] ]; then
+if [ $commands[pyenv] ]; then
   eval "$(pyenv init -)"
   eval "$(pyenv virtualenv-init -)"
 fi
@@ -71,6 +65,18 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
 LP_PS1_PREFIX='$(kube_ps1) '
 
+if [ $commands[stern] ]; then
+  eval "$(stern --completion zsh)"
+fi
+
+if [ $commands[argocd] ]; then
+  source <(argocd completion zsh)
+fi
+
+if [ $commands[kind] ]; then
+  source <(kind completion zsh)
+fi
+
 docker_download () {
   if (( $# == 0 ))
   then echo "docker_download" requires exactly 1 argument.; return; fi
@@ -80,7 +86,15 @@ docker_download () {
   gzip -f "$output"
 }
 
+alias g='git'
+alias k='kubectl'
+alias h='helm'
+alias m='minikube'
+alias a='az'
+alias t='terraform'
+alias tf='terraform'
+alias tg='terragrunt'
 alias cdtemp="cd \"$(mktemp -d)\""
-alias weather='curl wttr.in'
+alias wthr='curl wttr.in/Gdańsk'
 
 # vi:et:sw=2 ts=2
