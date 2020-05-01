@@ -96,3 +96,4 @@ call plug#end()
 :silent! colorscheme monokai
 
 au BufNewFile,BufRead Jenkinsfile setf groovy
+au BufRead,BufRead *.hcl setf terraform
