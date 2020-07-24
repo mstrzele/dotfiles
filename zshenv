@@ -21,7 +21,9 @@ export TZ='Europe/Warsaw'
 
 export LESS='-R' LESSHISTFILE='/dev/null'
 
-export GOPATH="${HOME}/go" GOBIN="${GOPATH}/bin" PATH="${PATH}:${GOBIN}"
+export GOPATH="${HOME}/go"
+export GOBIN="${GOPATH}/bin"
+export PATH="${PATH}:${GOBIN}"
 
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
