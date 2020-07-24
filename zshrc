@@ -86,6 +86,14 @@ docker_download () {
   gzip -f "$output"
 }
 
+aks_api_server_authorize_ip () {
+  az aks update -n "$1" -g "$2" --api-server-authorized-ip-ranges="$( (az aks show -n "$1" -g "$2" -o tsv --query apiServerAccessProfile.authorizedIpRanges --subscription "$3" && echo "$(curl -Ss https://ipv4.icanhazip.com/)/32") | sort | uniq | paste -d ',' -s)" --subscription "$3"
+}
+
+aks_api_server_deauthorize_ip () {
+  az aks update -n "$1" -g "$2" --api-server-authorized-ip-ranges="$( (az aks show -n "$1" -g "$2" -o tsv --query apiServerAccessProfile.authorizedIpRanges --subscription "$3" | grep -v "$(curl -Ss https://ipv4.icanhazip.com/)/32") | sort | uniq | paste -d ',' -s)" --subscription "$3"
+}
+
 alias g='git'
 alias k='kubectl'
 alias h='helm'
@@ -96,5 +104,6 @@ alias tf='terraform'
 alias tg='terragrunt'
 alias cdtemp="cd \"$(mktemp -d)\""
 alias wthr='curl wttr.in/Gdańsk'
+alias bu='brew update && brew upgrade && brew cask upgrade && brew cleanup'
 
 # vi:et:sw=2 ts=2
