@@ -137,7 +137,6 @@ cask "visual-studio-code"
 cask "vlc"
 cask "whatsapp"
 cask "zoomus"
-cask "zoomus-outlook-plugin"
 mas "Airmail", id: 918858936
 mas "CopyLess 2", id: 993841014
 mas "Evernote", id: 406056744
