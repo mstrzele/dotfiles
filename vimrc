@@ -90,6 +90,7 @@ Plug 'tpope/vim-surround'
 Plug 'hashivim/vim-terraform'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'cespare/vim-toml'
+Plug 'easymotion/vim-easymotion'
 
 call plug#end()
 
