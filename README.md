@@ -1,4 +1,4 @@
-# Dotfiles [![CircleCI Build Status](https://circleci.com/gh/mstrzele/dotfiles.svg?style=shield)](https://circleci.com/gh/mstrzele/dotfiles)
+# Dotfiles ![.github/workflows/continuous-integration-workflow.yml](https://github.com/mstrzele/dotfiles/workflows/.github/workflows/continuous-integration-workflow.yml/badge.svg)
 
 After cloning this repo, run `install` to automatically set up the development
 environment. Note that the install script is idempotent - running it multiple
