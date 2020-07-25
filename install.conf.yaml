@@ -7,7 +7,7 @@
 - clean: ['~']
 
 - shell:
-    - [ "$(uname -s)" = 'Darwin' ] && /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+    - "[ \"$(uname -s)\" = 'Darwin' ] && /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)\""
     - [git submodule update --init --recursive, Installing submodules]
     - mkdir -p ~/.backup && chmod 0700 ~/.backup
     - mkdir -p ~/bin
@@ -40,4 +40,9 @@
     ~/Makefile:
 
 - shell:
-    - [ "$(uname -s)" = 'Darwin' ] && brew bundle --global
+    - "[ \"$(uname -s)\" = 'Darwin' ] && brew bundle --global"
+    # https://github.com/VSCodeVim/Vim#mac
+    - "[ \"$(uname -s)\" = 'Darwin' ] && defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false"
+    - "[ \"$(uname -s)\" = 'Darwin' ] && defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false"
+    - "[ \"$(uname -s)\" = 'Darwin' ] && defaults write com.visualstudio.code.oss ApplePressAndHoldEnabled -bool false"
+    # - "[ \"$(uname -s)\" = 'Darwin' ] && defaults delete -g ApplePressAndHoldEnabled"
