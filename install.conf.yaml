@@ -32,6 +32,7 @@
     ~/.tmux.conf:
     ~/.tmuxline.conf:
     ~/.vimrc:
+    ~/.zlogin:
     ~/.zprezto: prezto
     ~/.zpreztorc:
     ~/.zshenv:
@@ -41,6 +42,7 @@
 
 - shell:
     - "[[ \"$(uname -s)\" == 'Darwin' ]] && brew bundle --global || true"
+    - "[[ \"$(uname -s)\" == 'Darwin' ]] && chmod go-w '/usr/local/share' || true"
     # https://github.com/VSCodeVim/Vim#mac
     - "[[ \"$(uname -s)\" == 'Darwin' ]] && defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false || true"
     - "[[ \"$(uname -s)\" == 'Darwin' ]] && defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false || true"
