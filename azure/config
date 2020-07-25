@@ -1,0 +1,9 @@
+[core]
+output = table
+
+[cloud]
+name = AzureCloud
+
+[defaults]
+location = West Europe
+
