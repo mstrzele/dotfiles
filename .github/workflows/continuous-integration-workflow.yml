@@ -6,6 +6,10 @@ on:
     branches:
       - master
 
+defaults:
+  run:
+    shell: sh
+
 jobs:
   build:
     name: dotbot
