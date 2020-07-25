@@ -7,7 +7,7 @@
 - clean: ['~']
 
 - shell:
-    - /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+    - [ "$(uname -s)" = 'Darwin' ] && /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
     - [git submodule update --init --recursive, Installing submodules]
     - mkdir -p ~/.backup && chmod 0700 ~/.backup
     - mkdir -p ~/bin
@@ -38,3 +38,6 @@
     ~/.zshrc:
       force: true
     ~/Makefile:
+
+- shell:
+    - [ "$(uname -s)" = 'Darwin' ] && brew bundle --global
