@@ -6,11 +6,8 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 export MANPATH="/usr/local/share/man:/usr/share/man"
 
 if [[ "$(uname -s)" == 'Darwin' ]]; then
-  export PATH="/usr/local/opt/mongodb-community@3.6/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/curl/bin:/usr/local/opt/gettext/bin:${PATH}"
-  export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:${MANPATH}"
-
-  export LDFLAGS="-L/usr/local/opt/gettext/lib"
-  export CPPFLAGS="-I/usr/local/opt/gettext/include"
+  export PATH="/usr/local/opt/findutils/libexec/gnubin:/usr/local/opt/grep/libexec/gnubin:/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+  export MANPATH="/usr/local/opt/findutils/libexec/gnuman:/usr/local/opt/grep/libexec/gnuman:/usr/local/opt/coreutils/libexec/gnuman:$PATH"
 fi
 
 export PATH="${HOME}/bin:${PATH}"
