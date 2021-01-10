@@ -33,13 +33,9 @@ export LESS_TERMCAP_us=$'\E[4;32m'        # begin underline
 source "${HOME}/.fzf.zsh"
 
 alias crontab='CRONTAB=true crontab'
-alias myip='dig @resolver1.opendns.com myip.opendns.com +short'
+alias myip='curl http://whatismyip.akamai.com/'
 alias s='sudo'
 alias v='vim'
-
-if [ $commands[hub] ]; then
-  eval "$(hub alias -s)"
-fi
 
 if [ $commands[kubectl] ]; then
   source <(kubectl completion zsh)
@@ -101,6 +97,14 @@ aks_api_server_deauthorize_ip () {
   az aks update -n "$1" -g "$2" --api-server-authorized-ip-ranges="$( (az aks show -n "$1" -g "$2" -o tsv --query apiServerAccessProfile.authorizedIpRanges --subscription "$3" | grep -v "$(curl -Ss https://ipv4.icanhazip.com/)/32") | sort | uniq | paste -d ',' -s)" --subscription "$3"
 }
 
+git_clone_azure_devops_gfiosvr () {
+  git clone "git@ssh.dev.azure.com:v3/GFIOSvr/$1" "$HOME/$1"
+}
+
+terragrunt_terraform_cleanup () {
+  find . -type d \( -name '.terraform' -o -name '.terragrunt-cache' \) -print -exec rm -rf {} +
+}
+
 alias g='git'
 alias k='kubectl'
 alias h='helm'
@@ -108,9 +112,15 @@ alias m='minikube'
 alias a='az'
 alias t='terraform'
 alias tf='terraform'
+alias tfd='terraform-docs'
 alias tg='terragrunt'
 alias cdtemp="cd \"$(mktemp -d)\""
 alias wthr='curl wttr.in/Gdańsk'
-alias bu='brew update && brew upgrade && brew cask upgrade && brew cleanup'
+alias bu='brew update && brew upgrade && brew cleanup'
+alias kb='k run -i -t busybox --image=busybox --restart=Never --rm'
+alias v='vim'
+alias b='brew'
+alias vysr="vim -c 'set ft=yaml' -R -"
+alias latest="git tag -l '*.*.*' | sort -V | tail -1"
 
 # vi:et:sw=2 ts=2
