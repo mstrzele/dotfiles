@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# Brewfile hash: {{ include "dot_Brewfile" | sha256sum }}
+/opt/homebrew/bin/brew bundle --global --cleanup
+
+"$(/opt/homebrew/bin/brew --prefix)"/opt/fzf/install --key-bindings --completion --no-update-rc
+
+mkdir -p ~/go
+chflags hidden ~/go
+
+az extension add --upgrade --name azure-devops --yes

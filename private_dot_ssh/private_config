@@ -1,0 +1,13 @@
+Host sdf
+  HostName sdf-eu.org
+
+Host zoltan
+  HostName zoltan.ds.pg.gda.pl
+  Port 31415
+
+Host *
+	IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+  AddKeysToAgent yes
+  User mstrzele
+  ControlMaster yes
+  ControlPath ~/.ssh/%r@%h:%p

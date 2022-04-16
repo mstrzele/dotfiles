@@ -1,0 +1,28 @@
+[".dir_colors"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/arcticicestudio/nord-dircolors/master/src/dir_colors"
+[".zprezto"]
+    type = "archive"
+    url = "https://github.com/sorin-ionescu/prezto/archive/refs/heads/master.zip"
+    exact = true
+    stripComponents = 1
+[".zprezto/modules/autosuggestions/external"]
+    type = "archive"
+    url = "https://github.com/zsh-users/zsh-autosuggestions/archive/refs/heads/master.zip"
+    exact = true
+    stripComponents = 1
+[".zprezto/modules/history-substring-search/external"]
+    type = "archive"
+    url = "https://github.com/zsh-users/zsh-history-substring-search/archive/refs/heads/master.zip"
+    exact = true
+    stripComponents = 1
+[".zprezto/modules/syntax-highlighting/external"]
+    type = "archive"
+    url = "https://github.com/zsh-users/zsh-syntax-highlighting/archive/refs/heads/master.zip"
+    exact = true
+    stripComponents = 1
+[".zsh-hist"]
+    type = "archive"
+    url = "https://github.com/marlonrichert/zsh-hist/archive/refs/heads/main.zip"
+    exact = true
+    stripComponents = 1
