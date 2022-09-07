@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+[ -f "$HOME/.zshenv.local" ] && source "$HOME/.zshenv.local"
+
 fpath=(
   "$HOMEBREW_PREFIX/share/zsh/site-functions"
   "$HOMEBREW_PREFIX/share/zsh-completions"
@@ -83,5 +85,7 @@ alias v='vim'
 
 kubectx kind-kind
 kubectl config set-context --current --namespace=default
+
+[ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"
 
 # vi:et:sw=2 ts=2 ft=zsh
