@@ -23,13 +23,19 @@
 {{-   writeToStdout "💡 Tip: you can re-enter your name and email with `chezmoi init --data=false`.\n" -}}
 {{- end -}}
 
+encryption = "gpg"
 sourceDir = "{{ .chezmoi.sourceDir }}"
 [data]
     name = "{{ $name }}"
     email = "{{ $email }}"
+[edit]
+    apply = true
+    command = "$EDITOR"
+    watch = true
 [git]
+    autoAdd = true
     autoCommit = false
     autoPush = false
-    encryption = "age"
-[age]
-    passphrase = true
+[gpg]
+    recipient = "047C8710883114151D3FB64CCAD407726C9FD124"
+    args = ["--quiet"]
