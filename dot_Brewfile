@@ -25,6 +25,7 @@ brew "age"
 brew "ansible"
 brew "argocd"
 brew "awk", link: false
+brew "aws-console"
 brew "awscli"
 brew "azure-cli"
 brew "bash"
@@ -45,6 +46,7 @@ brew "dive"
 brew "docker-completion"
 brew "dog"
 brew "dos2unix"
+brew "envoy"
 brew "faas-cli"
 brew "findutils"
 brew "fzf"
@@ -164,18 +166,17 @@ cask "skype"
 cask "soda-player"
 cask "sonos"
 cask "spotify"
-cask "sqlpro-for-postgres"
 cask "telegram"
 cask "thingsmacsandboxhelper"
 cask "tunnelblick-beta"
 cask "visual-studio-code"
-cask "webtorrent"
 cask "whatsapp"
 cask "zoom"
 mas "1Password for Safari", id: 1569813296
 mas "Controller", id: 1198176727
 mas "Fantastical", id: 975937182
 mas "Grammarly for Safari", id: 1462114288
+mas "Homie", id: 1533590432
 mas "Messenger", id: 1480068668
 mas "Microsoft Excel", id: 462058435
 mas "Microsoft OneNote", id: 784801555
@@ -186,3 +187,4 @@ mas "OneDrive", id: 823766827
 mas "Slack", id: 803453959
 mas "Spark", id: 1176895641
 mas "Things", id: 904280696
+mas "Twitter", id: 409789998
