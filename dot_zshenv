@@ -3,6 +3,7 @@ unsetopt GLOBAL_RCS
 export LANG='pl_PL.UTF-8' LC_CTYPE='pl_PL.UTF-8' LC_MESSAGES='en_US.UTF-8'
 export TZ='Europe/Warsaw'
 export EDITOR='vim' VISUAL='code -w'
+export PAGER='bat -p'
 export LESS='-R' LESSHISTFILE='/dev/null'
 
 path=(
