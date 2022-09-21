@@ -7,6 +7,6 @@ set -o errexit
 set -o pipefail
 IFS=$'\n\t'
 
-IMAGE='kindest/node:v1.20.15'
+IMAGE='kindest/node:v1.23.10'
 docker pull "$IMAGE"
 kind delete cluster && kind create cluster --image "$IMAGE" --wait 60s
