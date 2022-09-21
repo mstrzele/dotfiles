@@ -1,0 +1,95 @@
+unsetopt GLOBAL_RCS
+
+export LANG='pl_PL.UTF-8' LC_CTYPE='pl_PL.UTF-8' LC_MESSAGES='en_US.UTF-8'
+export TZ='Europe/Warsaw'
+export EDITOR='vim' VISUAL='code -w'
+export LESS='-R' LESSHISTFILE='/dev/null'
+
+path=(
+  "$HOME/bin"
+  "$PYENV_ROOT/bin"
+  "$GOBIN"
+  "${KREW_ROOT:-$HOME/.krew}/bin"
+)
+
+alias cat='bat -p'
+alias code='codium'
+alias crontab='CRONTAB=true crontab'
+alias fd='fd --glob'
+alias fzf="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
+alias go='richgo'
+alias ls='exa'
+alias man='tldr'
+
+# Homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+path+=(
+  '/usr/local/sbin'
+  '/usr/local/bin'
+  "$HOMEBREW_PREFIX/opt/findutils/libexec/gnubin"
+  "$HOMEBREW_PREFIX/opt/gnu-indent/libexec/gnubin"
+  "$HOMEBREW_PREFIX/opt/gnu-sed/libexec/gnubin"
+  "$HOMEBREW_PREFIX/opt/gnu-tar/libexec/gnubin"
+  "$HOMEBREW_PREFIX/opt/grep/libexec/gnubin"
+  "$HOMEBREW_PREFIX/opt/gsed/libexec/gnuman"
+  "$HOMEBREW_PREFIX/opt/libtool/libexec/gnubin"
+  "$HOMEBREW_PREFIX/opt/make/libexec/gnubin"
+  "$HOMEBREW_PREFIX/opt/openssl@3/bin"
+  "$HOMEBREW_PREFIX/bin"
+  '/usr/sbin'
+  '/usr/bin'
+  '/sbin'
+  '/bin'
+)
+
+manpath=(
+  '/usr/local/share/man'
+  "$HOMEBREW_PREFIX/opt/findutils/libexec/gnuman"
+  "$HOMEBREW_PREFIX/opt/gnu-indent/libexec/gnuman"
+  "$HOMEBREW_PREFIX/opt/gnu-sed/libexec/gnuman"
+  "$HOMEBREW_PREFIX/opt/gnu-tar/libexec/gnuman"
+  "$HOMEBREW_PREFIX/opt/grep/libexec/gnuman"
+  "$HOMEBREW_PREFIX/opt/gsed/libexec/gnuman"
+  "$HOMEBREW_PREFIX/opt/libtool/libexec/gnuman"
+  "$HOMEBREW_PREFIX/opt/make/libexec/gnuman"
+  "$HOMEBREW_PREFIX/share/man"
+  '/usr/share/man'
+)
+
+export PATH MANPATH
+
+fpath=(
+  "$HOMEBREW_PREFIX/share/zsh/site-functions"
+  "$HOMEBREW_PREFIX/share/zsh-completions"
+  $fpath
+)
+
+# OpenSSL
+export LDFLAGS="-L$HOMEBREW_PREFIX/opt/openssl@3/lib"
+export CPPFLAGS="-I$HOMEBREW_PREFIX/opt/openssl@3/include"
+export PKG_CONFIG_PATH="$HOMEBREW_PREFIX/opt/openssl@3/lib/pkgconfig"
+
+# Python
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init - $SHELL)"
+
+# Go
+export GOPATH="$HOME/go"
+export GOBIN="$GOPATH/bin"
+
+# .NET
+export DOTNET_ROOT="$HOMEBREW_PREFIX/opt/dotnet/libexec"
+
+# AWS
+export AWS_VAULT='default'
+
+# https://github.com/instrumenta/kubernetes-json-schema/issues/32#issuecomment-872538205
+export KUBEVAL_SCHEMA_LOCATION='https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master'
+
+if [[ -f "$HOME/.zshenv.local" ]]; then
+  source "$HOME/.zshenv.local"
+fi
+
+# vi:et:sw=2 ts=2 ft=zsh

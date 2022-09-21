@@ -1,86 +1,84 @@
 #!/usr/bin/env zsh
 
-[ -f "$HOME/.zshenv.local" ] && source "$HOME/.zshenv.local"
+# bat
+export BAT_THEME='Nord' BAT_PAGER='less -RF'
+export MANPAGER="sh -c 'col -b | bat -l man -p'"
 
-fpath=(
-  "$HOMEBREW_PREFIX/share/zsh/site-functions"
-  "$HOMEBREW_PREFIX/share/zsh-completions"
-  $fpath
-)
-
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
-  
-autoload -Uz compinit
-compinit
-eval "$(gh completion -s zsh)"
-eval "$(op completion zsh)"; compdef _op op
-source <(kubectl completion zsh)
-source <(kind completion zsh)
-source <(helm completion zsh)
-source <(kustomize completion zsh)
-eval "$(stern --completion zsh)"
-source <(argocd completion zsh)
-
-autoload bashcompinit && bashcompinit
-complete -o nospace -C /opt/homebrew/bin/terraform terraform
-eval "$(terraform-docs completion zsh)"; compdef _terraform-docs terraform-docs
-source "$HOMEBREW_PREFIX/etc/bash_completion.d/az"
-
-source "$HOME/.iterm2_shell_integration.zsh"
+# iTerm2
 export ITERM2_SQUELCH_MARK=1
+source "$HOME/.iterm2_shell_integration.zsh"
 
+# spaceship prompt
 export SPACESHIP_CHAR_SUFFIX=' '
 export SPACESHIP_CHAR_SYMBOL='$'
+export SPACESHIP_DOCKER_SHOW=false
 export SPACESHIP_KUBECTL_SHOW=true
 export SPACESHIP_KUBECTL_VERSION_SHOW=false
 export SPACESHIP_BATTERY_SHOW=false
 export SPACESHIP_VI_MODE_SHOW=true
+
 source "$HOMEBREW_PREFIX/opt/spaceship/spaceship.zsh"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# zprezto
+source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+  
+# compinit
+autoload -Uz compinit && compinit
+autoload bashcompinit && bashcompinit
 
+# zsh-hist
 source "$HOME/.zsh-hist/zsh-hist.plugin.zsh"
 HISTSIZE=$(( 1.2 * SAVEHIST ))
 bindkey "^Z" undo # ^ (control) + Z
-bindkey "^[undo" undo # ⌘ (command) + Z
 
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-eval "$(pyenv init --path)"
-path=("$PYENV_ROOT/bin" $path)
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init - $SHELL)"
+# fzf
+source "$HOME/.fzf.zsh"
 
-function copy-command-output() {
-  COMMAND="$*"
-  OUTPUT_FILE="$(mktemp)"
-  /bin/sh -c "$COMMAND" 2>&1 > $OUTPUT_FILE
-  echo "$ $COMMAND\n$(cat $OUTPUT && rm -f $OUTPUT_FILE)" | head | pbcopy
+# 1Password
+eval "$(op completion zsh)"; compdef _op op
+export SSH_AUTH_SOCK="$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+
+# GitHub CLI
+eval "$(gh completion -s zsh)"; compdef _gh gh
+
+# Terraform
+complete -o nospace -C /opt/homebrew/bin/terraform terraform
+eval "$(terraform-docs completion zsh)"; compdef _terraform-docs terraform-docs
+
+# Azure CLI
+source "$HOMEBREW_PREFIX/etc/bash_completion.d/az"
+
+# Kubernetes
+source <(kind completion zsh)
+source <(kubectl completion zsh)
+source <(kustomize completion zsh)
+source <(stern --completion=zsh)
+source <(helm completion zsh)
+source <(argocd completion zsh)
+
+otp() {
+  item_name=$1
+  vault=$2
+
+  eval "$(op signin)"
+  otp="$(op item get "$item_name" --vault "$vault" --otp)"
+  echo -n "$otp" | pbcopy # copy OTP to the clipboard
+  echo "$otp"
 }
 
 alias b='brew'
 alias bu='b upgrade --formulae && b cu --cleanup -y'
-alias c='code'
-alias cat='bat -p'
-alias cd=' cd'
-alias cdtemp='cd $TMPDIR'
-alias crontab='CRONTAB=true crontab'
-alias he=' hist e'
-alias hd=' hist d'
-alias hf=' hist f -1'
-alias hl=' hist l'
-alias fzf="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
+alias c='cat'
+alias cdt='cd $TMPDIR'
+alias d=' hist d'
+alias e=' hist e'
 alias g='git'
-alias gc='git commit'
-alias gl='git lg'
-alias go='richgo'
-alias gs='git status'
-alias gp='git pull --recurse-submodules'
 alias h='helm'
 alias k='kubectl'
 alias kctx='kubectx'
 alias kns='kubens'
+alias l=' hist l'
+alias la='exa -la'
 alias o='open'
 alias s='stern'
 alias tf='terraform'
@@ -90,6 +88,8 @@ alias v='vim'
 kubectx kind-kind
 kubectl config set-context --current --namespace=default
 
-[ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"
+if [[ -f "$HOME/.zshrc.local" ]]; then
+  source "$HOME/.zshrc.local"
+fi
 
 # vi:et:sw=2 ts=2 ft=zsh
