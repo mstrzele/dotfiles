@@ -7,22 +7,14 @@
     exact = true
     stripComponents = 1
 [".zprezto/modules/autosuggestions/external"]
-    type = "archive"
-    url = "https://github.com/zsh-users/zsh-autosuggestions/archive/refs/heads/master.zip"
-    exact = true
-    stripComponents = 1
+    type = "git-repo"
+    url = "https://github.com/zsh-users/zsh-autosuggestions.git"
 [".zprezto/modules/history-substring-search/external"]
-    type = "archive"
-    url = "https://github.com/zsh-users/zsh-history-substring-search/archive/refs/heads/master.zip"
-    exact = true
-    stripComponents = 1
+    type = "git-repo"
+    url = "https://github.com/zsh-users/zsh-history-substring-search.git"
 [".zprezto/modules/syntax-highlighting/external"]
-    type = "archive"
-    url = "https://github.com/zsh-users/zsh-syntax-highlighting/archive/refs/heads/master.zip"
-    exact = true
-    stripComponents = 1
+    type = "git-repo"
+    url = "https://github.com/zsh-users/zsh-syntax-highlighting.git"
 [".zsh-hist"]
-    type = "archive"
-    url = "https://github.com/marlonrichert/zsh-hist/archive/refs/heads/main.zip"
-    exact = true
-    stripComponents = 1
+    type = "git-repo"
+    url = "https://github.com/marlonrichert/zsh-hist.git"
