@@ -83,8 +83,9 @@ export GOBIN="$GOPATH/bin"
 # .NET
 export DOTNET_ROOT="$HOMEBREW_PREFIX/opt/dotnet/libexec"
 
-# AWS
-export AWS_VAULT='default'
+# AWS CLI
+export AWS_DEFAULT_OUTPUT='yaml'
+export AWS_PAGER='bat -l yaml -p'
 
 # https://github.com/instrumenta/kubernetes-json-schema/issues/32#issuecomment-872538205
 export KUBEVAL_SCHEMA_LOCATION='https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master'
