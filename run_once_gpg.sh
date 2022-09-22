@@ -7,16 +7,14 @@ set -o errexit
 set -o pipefail
 IFS=$'\n\t'
 
-op confirm --all || eval "$(op signin my.1password.com maciej.strzelecki@gmail.com)"
+eval "$(op signin)"
 
 pushd "$(mktemp -d)" > /dev/null 2>&1 
 while read -r key && [ -n "$key" ]
 do
-  touch "$key"
+  op document get "$key" --output "$key" 
   chmod 0600 "$key"
-  # shellcheck disable=SC2094
-  op get document "$key" >> "$key" 
   gpg --import "$key"
   rm -f "$key"
-done < <(op list documents | jq -rS '.[] | select(.overview.tags[0] == "GPG") | .overview.title')
+done < <(op document list --format json | jq -rS '.[] | select(.tags[0] == "GPG") | .title')
 popd > /dev/null 2>&1 
