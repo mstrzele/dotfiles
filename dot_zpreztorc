@@ -4,6 +4,8 @@ zstyle ':prezto:*:*' color 'yes'
 zstyle ':prezto:load' pmodule \
   'environment' \
   'terminal' \
+  'environment' \
+  'terminal' \
   'editor' \
   'history' \
   'directory' \
@@ -12,15 +14,17 @@ zstyle ':prezto:load' pmodule \
   'syntax-highlighting' \
   'history-substring-search' \
   'autosuggestions' \
-  'ssh' \
-  'gpg'
+  'ssh'
 
+zstyle ':prezto:module:terminal' auto-title 'yes'
 zstyle ':prezto:module:terminal' auto-title 'yes'
 
 zstyle ':prezto:module:editor' key-bindings 'vi'
 zstyle ':prezto:module:editor' ps-context 'yes'
+zstyle ':prezto:module:editor' ps-context 'yes'
 
+zstyle ':prezto:module:utility' safe-ops 'yes'
 zstyle ':prezto:module:utility' safe-ops 'yes'
 
 zstyle ':prezto:module:completion:*:hosts' etc-host-ignores \
-  '0.0.0.0' '127.0.0.1'
+    '0.0.0.0' '127.0.0.1'

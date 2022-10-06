@@ -1,95 +1,66 @@
 #!/usr/bin/env zsh
-
-# bat
-export BAT_THEME='Nord' BAT_PAGER='less -RF'
-export MANPAGER="sh -c 'col -b | bat -l man -p'"
-
-# iTerm2
-export ITERM2_SQUELCH_MARK=1
-source "$HOME/.iterm2_shell_integration.zsh"
-
-# spaceship prompt
-export SPACESHIP_CHAR_SUFFIX=' '
-export SPACESHIP_CHAR_SYMBOL='$'
-export SPACESHIP_DOCKER_SHOW=false
-export SPACESHIP_KUBECTL_SHOW=true
-export SPACESHIP_KUBECTL_VERSION_SHOW=false
-export SPACESHIP_BATTERY_SHOW=false
-export SPACESHIP_VI_MODE_SHOW=true
-
-source "$HOMEBREW_PREFIX/opt/spaceship/spaceship.zsh"
+unsetopt GLOBAL_RCS
 
 # zprezto
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-  
+
 # compinit
-autoload -Uz compinit && compinit
-autoload bashcompinit && bashcompinit
+autoload -Uz compinit bashcompinit
+compinit
+bashcompinit
 
 # zsh-hist
 source "$HOME/.zsh-hist/zsh-hist.plugin.zsh"
-HISTSIZE=$(( 1.2 * SAVEHIST ))
-bindkey "^Z" undo # ^ (control) + Z
+bindkey "^Z" undo      # Ctrl + Z
+bindkey "^[[1;3A" undo # Alt + ↑
+# hist: warning: $HISTSIZE should be at least 20% larger than $SAVEHIST
+export HISTSIZE=$((1.2 * SAVEHIST))
+
+# Starship
+eval "$(starship init zsh)"
 
 # fzf
 source "$HOME/.fzf.zsh"
 
-# 1Password
-eval "$(op completion zsh)"; compdef _op op
-export SSH_AUTH_SOCK="$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+# direnv
+eval "$(direnv hook zsh)"
 
-# GitHub CLI
-eval "$(gh completion -s zsh)"; compdef _gh gh
+# iTerm2
+source "$HOME/.iterm2_shell_integration.zsh"
+
+# 1Password
+eval "$(op completion zsh)"
+compdef _op op
+
+# GitHub
+eval "$(gh completion -s zsh)"
+compdef _gh gh
+
+# GitLab
+eval "$(glab completion -s zsh)"
+# ! does NOT work in Bash
+# bash: compdef: command not found
+eval "$(gitlab-ci-local --completion)"
 
 # Terraform
-complete -o nospace -C /opt/homebrew/bin/terraform terraform
-eval "$(terraform-docs completion zsh)"; compdef _terraform-docs terraform-docs
-
-# Azure CLI
-source "$HOMEBREW_PREFIX/etc/bash_completion.d/az"
+eval "$(terraform-docs completion zsh)"
+compdef _terraform-docs terraform-docs
 
 # Kubernetes
 source <(kind completion zsh)
+source <(clusterctl completion zsh)
 source <(kubectl completion zsh)
 source <(kustomize completion zsh)
-source <(stern --completion=zsh)
 source <(helm completion zsh)
 source <(argocd completion zsh)
+source <(flux completion zsh)
 
-otp() {
-  item_name=$1
-  vault=$2
+source <(stern --completion=zsh)
 
-  eval "$(op signin)"
-  otp="$(op item get "$item_name" --vault "$vault" --otp)"
-  echo -n "$otp" | pbcopy # copy OTP to the clipboard
-  echo "$otp"
-}
+# Google Cloud Platform
+source $HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
+source $HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
 
-alias b='brew'
-alias bu='b upgrade --formulae && b cu --cleanup -y'
-alias c='cat'
-alias cdt='cd $TMPDIR'
-alias d=' hist d'
-alias e=' hist e'
-alias g='git'
-alias h='helm'
-alias k='kubectl'
-alias kctx='kubectx'
-alias kns='kubens'
-alias l=' hist l'
-alias la='exa -la'
-alias o='open'
-alias s='stern'
-alias tf='terraform'
-alias tg='terragrunt'
-alias v='vim'
-
-kubectx kind-kind
-kubectl config set-context --current --namespace=default
-
-if [[ -f "$HOME/.zshrc.local" ]]; then
-  source "$HOME/.zshrc.local"
-fi
-
-# vi:et:sw=2 ts=2 ft=zsh
+source "$HOME/.completion"
+source "$HOME/.aliases"
+source "$HOME/.functions"

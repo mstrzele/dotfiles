@@ -1,0 +1,91 @@
+#!/bin/sh
+
+alias code=codium
+alias diff='codium -d'
+alias edit=$EDITOR
+alias fzf="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
+alias go=richgo
+alias ls='exa --group-directories-first'
+
+## a
+
+alias a=argocd
+
+## b
+
+alias b=brew
+alias bu='b upgrade --formulae && b cu --cleanup -y'
+
+## c
+
+alias c=cat
+
+## d
+
+alias d=docker
+
+alias dalpine='drun alpine:latest'
+alias dbusybox='drun busybox:latest'
+alias ddebian='drun debian:latest'
+alias dubuntu='drun ubuntu:latest'
+
+## e
+
+alias e='codium -w'
+
+## f
+
+alias f=flux
+
+## g
+
+alias g=git
+alias gcl=gitlab-ci-local
+
+## h
+
+alias h=helm
+
+alias hd=' hist delete'
+alias he=' hist edit'
+alias hf=' hist fix'
+alias hl=' hist list'
+alias hu=' hist undo'
+
+## k
+
+alias k=kubectl
+alias kctx=kubectx
+alias kns=kubens
+
+alias kalpine='krun alpine:latest'
+alias kbusybox='krun busybox:latest'
+alias kdebian='krun debian:latest'
+alias kubuntu='krun ubuntu:latest'
+
+## l
+
+alias l='exa -1'
+alias la='exa -la'
+
+## o
+
+alias o=open
+
+## s
+
+alias s=stern
+
+## t
+
+alias tf=terraform
+alias tg=terragrunt
+
+## u
+
+alias u=' undo'
+
+## v
+
+alias v=vim
+alias vd=vimdiff

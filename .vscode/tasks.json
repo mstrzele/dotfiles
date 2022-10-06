@@ -1,0 +1,15 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "apply",
+      "type": "shell",
+      "command": "chezmoi apply --init"
+    },
+    {
+      "label": "pre-commit run",
+      "type": "shell",
+      "command": "pre-commit run -a"
+    }
+  ]
+}

@@ -1,8 +1,6 @@
 [".zprezto"]
-    type = "archive"
-    url = "https://github.com/sorin-ionescu/prezto/archive/refs/heads/master.zip"
-    exact = true
-    stripComponents = 1
+    type = "git-repo"
+    url = "https://github.com/sorin-ionescu/prezto.git"
 [".zprezto/modules/autosuggestions/external"]
     type = "git-repo"
     url = "https://github.com/zsh-users/zsh-autosuggestions.git"

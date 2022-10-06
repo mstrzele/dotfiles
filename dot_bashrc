@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+# bash-completion
+source "$HOMEBREW_PREFIX/etc/bash_completion"
+
+# Starship
+eval "$(starship init bash)"
+
+# fzf
+source "$HOME/.fzf.bash"
+
+# direnv
+eval "$(direnv hook bash)"
+
+# iTerm2
+source "$HOME/.iterm2_shell_integration.bash"
+
+# 1Password
+eval "$(op completion bash)"
+
+# GitHub
+eval "$(gh completion -s bash)"
+
+# GitLab
+eval "$(glab completion -s bash)"
+
+# Terraform
+eval "$(terraform-docs completion bash)"
+
+# Google Cloud Platform
+source $HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc
+source $HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc
+
+# Kubernetes
+source <(kind completion bash)
+source <(clusterctl completion bash)
+source <(kubectl completion bash)
+source <(stern --completion=bash)
+source <(kustomize completion bash)
+source <(helm completion bash)
+source <(argocd completion bash)
+source <(flux completion bash)
+
+source "$HOME/.completion"
+source "$HOME/.aliases"
+source "$HOME/.functions"
