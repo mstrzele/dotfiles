@@ -1,66 +1,93 @@
 #!/usr/bin/env zsh
 unsetopt GLOBAL_RCS
 
+if [[ "${TERM_PROGRAM}" == 'iTerm.app' ]]; then
+  export VISUAL='vim'
+else
+  export VISUAL='codium -w'
+fi
+
 # zprezto
+
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 
 # compinit
+
 autoload -Uz compinit bashcompinit
 compinit
 bashcompinit
 
 # zsh-hist
-source "$HOME/.zsh-hist/zsh-hist.plugin.zsh"
+
+source "${HOME}/.zsh-hist/zsh-hist.plugin.zsh"
 bindkey "^Z" undo      # Ctrl + Z
 bindkey "^[[1;3A" undo # Alt + ↑
-# hist: warning: $HISTSIZE should be at least 20% larger than $SAVEHIST
+# ! hist: warning: $HISTSIZE should be at least 20% larger than $SAVEHIST
 export HISTSIZE=$((1.2 * SAVEHIST))
 
 # Starship
+
 eval "$(starship init zsh)"
 
 # fzf
-source "$HOME/.fzf.zsh"
+
+source "${HOME}/.fzf.zsh"
 
 # direnv
+
 eval "$(direnv hook zsh)"
 
+# Python
+
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
 # iTerm2
-source "$HOME/.iterm2_shell_integration.zsh"
+
+source "${HOME}/.iterm2_shell_integration.zsh"
 
 # 1Password
+
 eval "$(op completion zsh)"
 compdef _op op
 
 # GitHub
+
 eval "$(gh completion -s zsh)"
 compdef _gh gh
 
 # GitLab
+
 eval "$(glab completion -s zsh)"
 # ! does NOT work in Bash
-# bash: compdef: command not found
+# ! bash: compdef: command not found
 eval "$(gitlab-ci-local --completion)"
 
 # Terraform
+
+complete -o nospace -C "${HOMEBREW_PREFIX}/bin/terraform" terraform
 eval "$(terraform-docs completion zsh)"
 compdef _terraform-docs terraform-docs
 
 # Kubernetes
+
 source <(kind completion zsh)
 source <(clusterctl completion zsh)
 source <(kubectl completion zsh)
+source <(stern --completion=zsh)
 source <(kustomize completion zsh)
+source <(kompose completion zsh)
 source <(helm completion zsh)
 source <(argocd completion zsh)
 source <(flux completion zsh)
 
-source <(stern --completion=zsh)
+# Azure
+
+source "${HOMEBREW_PREFIX}/etc/bash_completion.d/az"
 
 # Google Cloud Platform
-source $HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
-source $HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
 
-source "$HOME/.completion"
-source "$HOME/.aliases"
-source "$HOME/.functions"
+source "${HOMEBREW_PREFIX}/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+source "${HOMEBREW_PREFIX}/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+
+source "${HOME}/.aliases"

@@ -1,0 +1,17 @@
+[kubernetes]
+symbol = '☸️  '
+disabled = false
+
+[aws]
+disabled = false
+
+[azure]
+disabled = true
+
+[gcloud]
+disabled = true
+
+[custom.vpn]
+when = ''' test $(networksetup -showpppoestatus "${PPPOE_SERVICE_NAME}") = 'connected' '''
+command = 'echo "${PPPOE_SERVICE_NAME}"'
+format = 'on 🔗 [$output](bold cyan) '

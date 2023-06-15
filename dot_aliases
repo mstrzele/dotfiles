@@ -1,91 +1,108 @@
 #!/bin/sh
 
 alias code=codium
-alias diff='codium -d'
-alias edit=$EDITOR
+alias diff='[[ "$TERM_PROGRAM" == "vscode" ]] && code -d || vimdiff'
+alias edit='[[ "$TERM_PROGRAM" == "vscode" ]] && code || vim'
 alias fzf="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
 alias go=richgo
 alias ls='exa --group-directories-first'
 
-## a
+# a
 
 alias a=argocd
 
-## b
+# b
 
 alias b=brew
+alias bbd='b bundle dump -f --global && ch add ~/.Brewfile ~/.Brewfile.lock.json'
 alias bu='b upgrade --formulae && b cu --cleanup -y'
 
-## c
+# c
 
 alias c=cat
+alias ch=chezmoi
+alias cha='ch apply'
+alias chai='cha --init'
+alias chc='ch cd'
+alias che='ch edit'
+alias chea='che --apply'
+alias chg='ch git'
+alias chsp='ch source-path'
 
-## d
+# d
 
 alias d=docker
+alias dcb='d compose build'
+alias dcd='d compose down'
+alias dcdv='dcd -v'
+alias dce='d compose exec'
+alias dcl='d compose logs'
+alias dcr='d compose run'
+alias dcu='d compose up'
+alias dcuw='dcu --wait'
+alias dsp='d system prune'
+alias dspa='dsp --all'
+alias dvp='d volume prune'
+alias dvpa='dvp --all'
 
-alias dalpine='drun alpine:latest'
-alias dbusybox='drun busybox:latest'
-alias ddebian='drun debian:latest'
-alias dubuntu='drun ubuntu:latest'
+# e
 
-## e
+alias e=edit
 
-alias e='codium -w'
-
-## f
+# f
 
 alias f=flux
 
-## g
+# g
 
 alias g=git
 alias gcl=gitlab-ci-local
+alias gi='git ignore $(git ignore list | tr "," "\n" | fzf -m --preview="git ignore {}" | tr -d "\n") | tee .gitignore'
 
-## h
+# h
 
 alias h=helm
+alias hd=' noglob hist delete'
+alias he=' noglob hist edit'
+alias hf=' noglob hist fix'
+alias hl=' noglob hist list'
+alias hu=' noglob hist undo'
 
-alias hd=' hist delete'
-alias he=' hist edit'
-alias hf=' hist fix'
-alias hl=' hist list'
-alias hu=' hist undo'
-
-## k
+# k
 
 alias k=kubectl
 alias kctx=kubectx
 alias kns=kubens
 
-alias kalpine='krun alpine:latest'
-alias kbusybox='krun busybox:latest'
-alias kdebian='krun debian:latest'
-alias kubuntu='krun ubuntu:latest'
-
-## l
+# l
 
 alias l='exa -1'
 alias la='exa -la'
 
-## o
+# m
+
+alias m=make
+
+# o
 
 alias o=open
 
-## s
+# s
 
 alias s=stern
 
-## t
+# t
 
+alias td=terrform-docs
 alias tf=terraform
+alias tm=terramate
 alias tg=terragrunt
 
-## u
+# u
 
 alias u=' undo'
 
-## v
+# v
 
 alias v=vim
 alias vd=vimdiff

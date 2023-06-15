@@ -1,9 +1,12 @@
 #!/usr/bin/env zsh
-source "$HOME/.profile"
+
+source "${HOME}/.profile"
 
 fpath=(
-  $HOMEBREW_PREFIX/share/zsh/site-functions
-  $HOMEBREW_PREFIX/share/zsh-completions
+  "${HOME}/.functions"
+
+  "${HOMEBREW_PREFIX}/share/zsh/site-functions"
+  "${HOMEBREW_PREFIX}/share/zsh-completions"
 
   ${fpath[@]}
 )

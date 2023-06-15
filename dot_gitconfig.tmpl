@@ -1,22 +1,37 @@
+[alias]
+	lg = "log --color --graph --abbrev-commit --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset'"
+	ignore = "!gi() { curl -sL https://www.toptal.com/developers/gitignore/api/$@ ;}; gi"
+
+	a = add
+	ci = commit
+	ch = checkout
+	cl = clean
+	cldf = clean -df
+	d = diff
+	l = lg
+	rb = rebase
+	rbi = rebase -i
+	rs = reset
+	rsh = reset --hard
+	rst = restore
+	pl = pull
+	ps = push
+	psf = push --force
+	psfwl = push --force-with-lease
+	s = status
+	st = stash
+	stc = stash clear
+	stp = stash pop
+	stu = stash -u
+
+[commit]
+	gpgsign = true
+
 [core]
 	ignorecase = false
 
-[user]
-	name = {{ .name | quote }}
-	email = {{ .email | quote }}
-
-[alias]
-	ignore = "!gi() { curl -sL https://www.toptal.com/developers/gitignore/api/$@ ;}; gi"
-	lg = "log --color --graph --abbrev-commit --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset'"
-
 [credential "https://github.com"]
 	helper = !gh auth git-credential
-
-[pull]
-	rebase = true
-
-[push]
-	default = simple
 
 [diff]
 	tool = codium
@@ -36,3 +51,12 @@
 
 [mergetool "codium"]
 	cmd = codium --wait --new-window $MERGED
+
+[pull]
+	rebase = true
+
+[push]
+	default = simple
+
+[user]
+	name = {{ .name | quote }}

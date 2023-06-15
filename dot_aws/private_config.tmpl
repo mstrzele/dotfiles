@@ -1,8 +1,0 @@
-[default]
-cli_auto_prompt = off
-
-{{ with $aws := onepasswordItemFields "Amazon Web Services" -}}
-[profile mstrzele]
-region     = eu-west-1
-mfa_serial = {{ index $aws "mfa serial" }}
-{{- end }}
