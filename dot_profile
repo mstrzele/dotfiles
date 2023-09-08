@@ -76,12 +76,6 @@ export BAT_PAGER='less -RF'
 
 export ITERM2_SQUELCH_MARK=1
 
-# Spaceship
-
-# ! do NOT set this in ~/.spaceshiprc.zsh 'cause it's being overwritten in .envrc files
-export SPACESHIP_AWS_SHOW=false
-export SPACESHIP_GCLOUD_SHOW=false
-
 # 1Password
 
 export OP_BIOMETRIC_UNLOCK_ENABLED=true
