@@ -1,0 +1,12 @@
+Host *
+  ServerAliveCountMax 3
+  ServerAliveInterval 5
+  AddKeysToAgent yes
+  ControlMaster yes
+  ControlPath ~/.ssh/%r@%h:%p
+
+  # 1Password SSH agent
+  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+
+Host github.com gitlab.com
+  User git
