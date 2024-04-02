@@ -42,6 +42,7 @@ eval "$(direnv hook zsh)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
+{{ if eq .chezmoi.os "darwin" -}}
 # iTerm2
 
 source "${HOME}/.iterm2_shell_integration.zsh"
@@ -50,6 +51,7 @@ source "${HOME}/.iterm2_shell_integration.zsh"
 
 eval "$(op completion zsh)"
 compdef _op op
+{{ end -}}
 
 # GitHub
 
@@ -85,9 +87,11 @@ source <(flux completion zsh)
 
 source "${HOMEBREW_PREFIX}/etc/bash_completion.d/az"
 
+{{ if eq .chezmoi.os "darwin" -}}
 # Google Cloud Platform
 
 source "${HOMEBREW_PREFIX}/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
 source "${HOMEBREW_PREFIX}/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+{{ end -}}
 
 source "${HOME}/.aliases"

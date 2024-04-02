@@ -1,12 +1,6 @@
 #!/bin/sh
 # Brewfile hash: {{ include "dot_Brewfile" | sha256sum }}
 
-if [ "$(uname -n)" = 'arm64' ]; then
-	PATH=/opt/homebrew/bin:$PATH
-else
-	PATH=/usr/local/bin:$PATH
-fi
-
 brew bundle --global --cleanup
 "$(brew --prefix)/opt/fzf/install" --key-bindings --completion --no-update-rc
 az extension add --upgrade --name azure-devops --yes
